@@ -1,0 +1,79 @@
+<div>
+  <div class="row first-row">
+    <div class="small-12 medium-9 large-8 columns small-centered">
+      <p>
+        <%= link_to("← All Posts", root_path) %> | <%= link_to 'Edit Post', edit_post_path(@post) %>
+      </p>
+      <article class="show_post_article">
+        <h1>
+          <%= @post.title.capitalize %>
+        </h1>
+        <h6 class="date">
+          <%= @post.created_at.strftime("%B %d, %Y") %>
+          <% if @post.tags.any? %>
+              |
+              <% @post.tags.each do |post_tag| %>
+                  #<%= post_tag.name.downcase %>
+              <% end %>
+          <% end %>
+        </h6>
+
+        <p>
+          <%= @post.body %>
+        </p>
+        <p class="byline">
+          Author:
+          <% if @post.author %>
+              <%= link_to(@post.author.username.capitalize, rel: "author") %>
+          <% end %>
+        </p>
+
+        <!-- <ul class="social-inline">
+          <li>
+            <a href="https://twitter.com/share" class="twitter-share-button" data-via="jeremiahshoaf" data-dnt="true" data-url="http://www.jeremiahshoaf.com/blog/gumroad-vs-e-junkie-whats-the-best-way-to-sell-your-digital-products">Tweet</a>
+          </li>
+          <li>
+            <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false" data-href="http://www.jeremiahshoaf.com/blog/gumroad-vs-e-junkie-whats-the-best-way-to-sell-your-digital-products"></div>
+          </li>
+          <li>
+            <div class="g-plusone" data-size="medium" data-href="http://www.jeremiahshoaf.com/blog/gumroad-vs-e-junkie-whats-the-best-way-to-sell-your-digital-products"></div>
+          </li>
+        </ul> -->
+
+        <!-- Place this tag after the last +1 button tag. -->
+        <!--<script type="text/javascript">-->
+<!--//          (function() {-->
+<!--//            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;-->
+<!--//            po.src = 'https://apis.google.com/js/platform.js';-->
+<!--//            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);-->
+<!--//          })();-->
+        <!--</script>-->
+
+        <br>
+        <br>
+        <br>
+      </article>
+
+      <div class="comments">
+
+        <div id="disqus_thread"><iframe id="dsq-app1" name="dsq-app1" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="http://disqus.com/embed/comments/?base=default&amp;version=9e152aba37a172b3ffa170827bee719e&amp;f=jeremiahshoaf&amp;t_i=%2Fblog%2Fgumroad-vs-e-junkie-whats-the-best-way-to-sell-your-digital-products&amp;t_u=http%3A%2F%2Fwww.jeremiahshoaf.com%2Fblog%2Fgumroad-vs-e-junkie-whats-the-best-way-to-sell-your-digital-products&amp;t_d=Gumroad%20vs%20E-junkie%3A%20What%E2%80%99s%20the%20Best%20Way%20to%20Sell%20Your%20Digital%20Products%3F&amp;t_t=Gumroad%20vs%20E-junkie%3A%20What%E2%80%99s%20the%20Best%20Way%20to%20Sell%20Your%20Digital%20Products%3F&amp;s_o=default" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 4065px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+        <script type="text/javascript">
+          var disqus_shortname = "jeremiahshoaf"; // required: replace example with your forum shortname
+          var disqus_developer = 0;
+          var disqus_identifier = "/blog/gumroad-vs-e-junkie-whats-the-best-way-to-sell-your-digital-products";
+          var disqus_url = "http://www.jeremiahshoaf.com/blog/gumroad-vs-e-junkie-whats-the-best-way-to-sell-your-digital-products";
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+            var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
+            dsq.src = "http://" + disqus_shortname + ".disqus.com/embed.js";
+            (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the &lt;a href="http://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;</noscript>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>

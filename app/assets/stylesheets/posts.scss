@@ -1,0 +1,19 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.show_post_article {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.comments {
+  margin-top: 0;
+}
+
+.edit_post, .new_post {
+  textarea {
+    height: inherit;
+  }
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Francesca Galluzzi - Master's Student & Aspiring TD</title>
+  <meta name="description" content="A website that serve as a blog and portfolio at the same time. Hence, it's my blogfolio!">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="top-border">
+  <p id="notice"><%= notice %></p>
+</div>
+
+<div class="row">
+  <div class="small-12 medium-12 large-12 small-centered columns">
+    <header>
+      <h1><%= link_to("Francesca Galluzzi", root_path) %></h1>
+      <h2><%= link_to("Master's Student & Aspiring TD", root_path) %></h2>
+      <div class="logo">
+        <%= link_to image_tag("logo.png", alt: "Francesca Galluzzi Logo"), root_path %>
+      </div>
+    </header>
+  </div>
+  <div class="small-12 medium-12 large-12 small-centered columns">
+    <nav>
+      <ul class="inline-list-custom">
+        <% if controller.controller_name == "posts" && controller.action_name == "index" %>
+            <li><%= link_to("Works & Projects") %></li>
+            <li><%= link_to("About") %></li>
+            <li><%= link_to("Blog", posts_path, class: "current") %></li>
+        <% else %>
+            <li><%= link_to("Works & Projects") %></li>
+            <li><%= link_to("About") %></li>
+            <li><%= link_to("Blog", posts_path) %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<%= yield %>
+
+<div class="row">
+  <div class="small-12 medium-12 large-12 columns">
+    <footer>
+      <ul>
+        <li>&copy; <%= Date.current.year %> <%= link_to("Francesca Galluzzi", root_path) %>. All rights reserved.</li>
+
+        <!-- *****************************************************************************************
+        The "Powered by Type & Grids" link in the footer is required in the Free version
+        typeandgrids.com/pirates -->
+        <li>Design powered by <a href="http://www.typeandgrids.com" target="_blank">Type &amp; Grids</a></li>
+        <!--  ************************************************************************************ -->
+
+      </ul>
+      <div class="social-icons">
+        <a href="https://twitter.com/Mandarina_P" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+        <a href="https://www.linkedin.com/in/francescagalluzzi/en" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
+        <a href="https://github.com/FrancyGallu" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+      </div>
+    </footer>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<div>
+  <div class="row first-row">
+    <div class=" large-8 medium-push-4 medium-8 columns ">
+      <% @posts.each do |post| %>
+          <article>
+            <h1>
+              <%= link_to(post.title.capitalize, post_path(post.id))%>
+            </h1>
+            <h6 class="date">
+              <%= post.created_at.strftime("%B %d, %Y") %>
+              <% if post.tags.any? %>
+                  |
+                  <% post.tags.each do |post_tag| %>
+                      #<%= post_tag.name.downcase %>
+                  <% end %>
+              <% end %>
+            </h6>
+            <p>
+              <!--Display 20% of the post body-->
+              <%= post.body[0..post.body.length*20/100] %>
+            </p>
+            <p>
+              <%= link_to("Continue reading →", post_path(post.id)) %>
+            </p>
+          </article>
+      <% end %>
+    </div>
+
+    <div class="large-4 medium-4 medium-pull-8 columns">
+      <aside class="blog-sidebar">
+        <p>
+          <%= link_to 'New Post', new_post_path %>
+        </p>
+        <h5>Tags</h5>
+        <ul>
+          <% @tags.each do |tag| %>
+              <li>
+                <%= link_to(tag.name.capitalize) %>
+              </li>
+          <% end %>
+        </ul>
+        <p>
+          <%= link_to("Blog Archive") %>
+        </p>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<!--<table>-->
+  <!--<thead>-->
+    <!--<tr>-->
+      <!--<th colspan="3"></th>-->
+    <!--</tr>-->
+  <!--</thead>-->
+
+  <!--<tbody>-->
+    <!--<#% @posts.each do |post| %>-->
+      <!--<tr>-->
+        <!--<td><#%= link_to 'Show', post %></td>-->
+        <!--<td><#%= link_to 'Edit', edit_post_path(post) %></td>-->
+        <!--<td><#%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+      <!--</tr>-->
+    <!--<#% end %>-->
+  <!--</tbody>-->
+<!--</table>-->
+
+<!--<br>-->
+
+<!--<#%= link_to 'New Post', new_post_path %>-->
