@@ -1,11 +1,13 @@
 <div class="row first-row">
-  <h1>Edit Post</h1>
+  <div class="small-12 medium-12 large-12 small-centered columns">
+    <h1>Edit Post</h1>
 
-  <p>
-    <%= link_to("← Back", posts_path) %> | <%= link_to 'Show Post', @post %>
-  </p>
+    <p>
+      <%= link_to("← Back", posts_path) %> | <%= link_to 'Show Post', @post %>
+    </p>
 
-  <%= render 'form' %>
+    <%= render 'form' %>
 
+  </div>
 </div>
 

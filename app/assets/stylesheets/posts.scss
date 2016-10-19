@@ -15,5 +15,24 @@
 .edit_post, .new_post {
   textarea {
     height: inherit;
+    border-radius: 5px;
+  }
+
+  input {
+    border-radius: 5px;
+  }
+
+  input[type="submit"] {
+    background-color: #575c66;
+    color: #faf8f7;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    padding: 4px 8px;
+
+    &:hover, &:active {
+      background-color: #d37961;
+      cursor: pointer;
+    }
   }
 }
