@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.blog-sidebar {
+  ul {
+    margin-left: 15px !important;
+  }
+}
+
 .show_post_article {
   border-bottom: none;
   padding-bottom: 0;
