@@ -27,6 +27,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.author = current_user
+    @post.tags = Tag.where(id: check_tags(params[:post][:tags]))
 
     respond_to do |format|
       if @post.save
@@ -44,6 +45,8 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
+        @post.tags = Tag.where(id: check_tags(params[:post][:tags]))
+        @post.save!
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
@@ -72,6 +75,18 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :body)
-      # params.fetch(:post, {})
+    end
+
+    # Verifies if there are new tags in the submitted parameters.
+    # If so, creates the new tags and correctly formats the tag_list with the new tags
+    def check_tags(tag_list)
+      tag_list.reject!(&:empty?)
+
+      tag_list.each_with_index do |tag_value, index|
+        if tag_value.to_i == 0 # If it's a word, not an id
+          new_tag_id = Tag.create(name: tag_value).id
+          tag_list[index] = new_tag_id.to_s
+        end
+      end
     end
 end

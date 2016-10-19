@@ -14,6 +14,20 @@
     <%= f.label "Title:" %>
     <%= f.text_field :title %>
 
+    <%= f.label "Tags:" %>
+    <%= f.select(
+            :tags,
+            options_from_collection_for_select(
+                Tag.not_deleted,
+                "id",
+                "name",
+                @post.get_tag_list,
+            ),
+            {},
+            multiple: true,
+            class: "selectize-control multi plugin-remove_button"
+        ) %>
+
     <%= f.label "Body:" %>
     <%= f.text_area :body, size: "12x60" %>
 

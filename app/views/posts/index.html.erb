@@ -11,7 +11,7 @@
               <% if post.tags.any? %>
                   |
                   <% post.tags.each do |post_tag| %>
-                      #<%= link_to(post_tag.name.downcase, tag_path(post_tag.name.downcase)) %>
+                      #<%= link_to(post_tag.name.downcase, tag_path(post_tag.name.downcase.gsub(" ","-"))) %>
                   <% end %>
               <% end %>
             </h6>
@@ -37,7 +37,7 @@
         <ul>
           <% @tags.each do |tag| %>
               <li>
-                <%= link_to(tag.name.capitalize, tag_path(tag.name.downcase)) %>
+                <%= link_to(tag.name.capitalize, tag_path(tag.name.downcase.gsub(" ","-"))) %>
               </li>
           <% end %>
         </ul>
@@ -48,25 +48,3 @@
     </div>
   </div>
 </div>
-
-<!--<table>-->
-  <!--<thead>-->
-    <!--<tr>-->
-      <!--<th colspan="3"></th>-->
-    <!--</tr>-->
-  <!--</thead>-->
-
-  <!--<tbody>-->
-    <!--<#% @posts.each do |post| %>-->
-      <!--<tr>-->
-        <!--<td><#%= link_to 'Show', post %></td>-->
-        <!--<td><#%= link_to 'Edit', edit_post_path(post) %></td>-->
-        <!--<td><#%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-      <!--</tr>-->
-    <!--<#% end %>-->
-  <!--</tbody>-->
-<!--</table>-->
-
-<!--<br>-->
-
-<!--<#%= link_to 'New Post', new_post_path %>-->

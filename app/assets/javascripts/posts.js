@@ -1,2 +1,32 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
+
+var ready = function() {
+    // Prevent form submit on Enter pressed
+    $("form.new_post").on("keypress", function (e) {
+        if (e.keyCode == 13) {
+            return false;
+        }
+    });
+    $("form.edit_post").on("keypress", function (e) {
+        if (e.keyCode == 13) {
+            return false;
+        }
+    });
+
+    // Activate Selectize.js
+    $('select#post_tags').selectize({
+        plugins: ['remove_button'],
+        delimiter: ',',
+        persist: false,
+        create: function(input) {
+            return {
+                value: input,
+                text: input
+            }
+        }
+    });
+};
+
+$(document).ready(ready);
+$(document).on('turbolinks:load', ready);
