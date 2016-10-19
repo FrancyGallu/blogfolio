@@ -28,9 +28,11 @@
 
     <div class="large-4 medium-4 medium-pull-8 columns">
       <aside class="blog-sidebar">
-        <p>
-          <%= link_to 'New Post', new_post_path %>
-        </p>
+        <% if user_signed_in? %>
+            <p>
+              <%= link_to 'New Post', new_post_path %>
+            </p>
+        <% end %>
         <h5>Tags</h5>
         <ul>
           <% @tags.each do |tag| %>

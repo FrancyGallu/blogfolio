@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+.log-in-form {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.new_user {
+    width: 50%;
+}
