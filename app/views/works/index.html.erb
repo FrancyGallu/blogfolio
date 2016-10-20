@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="small-12 medium-12 large-12 columns">
+    <% if user_signed_in? %>
+        <p>
+          <%= link_to 'New Work', new_work_path %>
+        </p>
+    <% end %>
+
+    <% if @works.empty? %>
+        <h4 class="no-works-message">There are no projects yet... Stay tuned</h4>
+    <% end %>
+
+    <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-3 inline-list-custom">
+
+      <% @works.each do |work| %>
+          <!-- Begin project -->
+          <li>
+            <div class="thumbnail">
+              <div class="thumbnail-img">
+                <div class="thumbnail-hover">
+                  <%= link_to("", work_path(work.id)) %>
+                </div>
+                <%= link_to image_tag(work.cover_image_url, alt: work.name), work_path(work.id) %>
+              </div>
+              <div class="thumbnail-caption">
+                <%= link_to(work.name.capitalize, work_path(work.id), class: "caption-link" ) %>
+              </div>
+            </div>
+          </li>
+          <!-- End project -->
+      <% end %>
+
+    </ul>
+  </div>
+</div>
