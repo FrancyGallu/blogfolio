@@ -1,17 +1,38 @@
 <%= form_for(@work) do |f| %>
-  <% if @work.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@work.errors.count, "error") %> prohibited this work from being saved:</h2>
+    <% if @work.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@work.errors.count, "error") %> prohibited this work from being saved:</h2>
 
-      <ul>
-      <% @work.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @work.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= f.label "Project Name:" %>
+    <%= f.text_field :name %>
+
+    <%= f.label "Cover Image URL:" %>
+    <%= f.text_field :cover_image_url %>
+
+    <%= f.label "Date of Project:" %>
+    <%= f.date_field :date %>
+
+    <%= f.label "Role:" %>
+    <%= f.text_field :role %>
+
+    <%= f.label "Project Type:" %>
+    <%= f.text_field :type %>
+
+    <%= f.label "Description:" %>
+    <%= f.text_area :description, size: "12x20" %>
+
+    <%= f.label "Content URLs:" %>
+    <%= f.text_field :content_urls %>
+
+    <div class="actions">
+      <%= f.submit %>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

@@ -1,6 +1,11 @@
-<h1>Editing Work</h1>
+<div class="row first-row">
+  <div class="small-12 medium-12 large-12 small-centered columns">
+    <h1>Edit Project</h1>
 
-<%= render 'form' %>
+    <p>
+      <%= link_to("← All Projects", works_path) %> | <%= link_to 'Show Project', work_path(@work.id) %>
+    </p>
 
-<%= link_to 'Show', @work %> |
-<%= link_to 'Back', works_path %>
+    <%= render 'form' %>
+  </div>
+</div>
