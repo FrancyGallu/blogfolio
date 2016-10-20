@@ -15,6 +15,10 @@
  *= require_self
  */
 
+header img {
+    height: 110px;
+}
+
 .log-in-form {
     display: flex;
     flex-flow: column;
