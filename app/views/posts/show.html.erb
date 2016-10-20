@@ -27,7 +27,7 @@
         <p class="byline">
           Author:
           <% if @post.author %>
-              <%= link_to(@post.author.username.capitalize, rel: "author") %>
+              <%= link_to(@post.author.username.capitalize, about_path, rel: "author") %>
           <% end %>
         </p>
 
