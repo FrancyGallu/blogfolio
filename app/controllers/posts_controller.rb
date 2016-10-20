@@ -8,6 +8,11 @@ class PostsController < ApplicationController
     @tags = Tag.not_deleted
   end
 
+  # GET /posts/archive
+  def archive
+    @grouped_posts = group_post(Post.not_deleted.order("created_at DESC"))
+  end
+
   # GET /posts/1
   # GET /posts/1.json
   def show
@@ -88,5 +93,18 @@ class PostsController < ApplicationController
           tag_list[index] = new_tag_id.to_s
         end
       end
+    end
+
+    # Groups all posts in a structure like:
+    # { year => { "month" => { posts } } }
+    def group_post(posts)
+      grouped_posts = {}
+      all_years = posts.map(&:creation_year).uniq
+
+      all_years.each do |year|
+        grouped_posts[year] = Post.by_creation_year(year).group_by { |post| post.created_at.strftime("%B") }
+      end
+
+      return grouped_posts
     end
 end

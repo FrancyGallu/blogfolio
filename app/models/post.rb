@@ -8,4 +8,12 @@ class Post < ActiveRecord::Base
   def get_tag_list
     self.tags.map(&:id).map(&:to_s)
   end
+
+  def creation_year
+    self.created_at.year
+  end
+
+  def self.by_creation_year(year)
+    where('extract(year from created_at) = ?', year)
+  end
 end

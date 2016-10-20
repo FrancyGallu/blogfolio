@@ -1,0 +1,30 @@
+<div>
+  <div class="row first-row">
+    <div class="small-12 small-centered medium-8 large-8 columns">
+      <p>
+        <%= link_to("← All Posts", posts_path) %>
+      </p>
+      <h1 class="archive-title">Blog Archive</h1>
+
+      <div class="archive-item">
+        <% @grouped_posts.each do |year, posts_by_month| %>
+            <h4><%= year %></h4>
+            <div>
+              <% posts_by_month.each do |month, posts| %>
+                  <div>
+                    <h5><%= month %></h5>
+                    <div>
+                      <ul>
+                        <% posts.each do |post| %>
+                            <li><%= link_to(post.title.capitalize, post_path(post.id)) %></li>
+                        <% end %>
+                      </ul>
+                    </div>
+                  </div>
+              <% end %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
