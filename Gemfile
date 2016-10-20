@@ -41,6 +41,8 @@ gem 'devise'
 gem 'permanent_records'
 # Use other parameters in url instead of :id
 gem 'friendly_id', '~> 5.1.0'
+# Pagination gem
+gem 'kaminari'
 
 group :production do
   # Use Unicorn as the app server

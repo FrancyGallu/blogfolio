@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.not_deleted.order("created_at DESC")
+    @posts = Post.not_deleted.order("created_at DESC").page params[:page]
     @tags = Tag.not_deleted
   end
 

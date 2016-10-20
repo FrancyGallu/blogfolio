@@ -7,7 +7,7 @@
       <h1 class="archive-title">Posts Under “<%= @tag.name.capitalize %>”</h1>
 
       <div class="archive-item">
-        <% @tag.posts.each do |post| %>
+        <% @posts.each do |post| %>
             <h2>
               <%= link_to(post.title.capitalize, post_path(post.id)) %>
             </h2>
@@ -15,6 +15,7 @@
               <%= post.created_at.strftime("%B %d, %Y") %>
             </h6>
         <% end %>
+        <%= paginate @posts %>
       </div>
     </div>
   </div>
