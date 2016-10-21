@@ -6,7 +6,7 @@ class WorksController < ApplicationController
   # GET /works
   # GET /works.json
   def index
-    @works = Work.not_deleted
+    @works = Work.not_deleted.page params[:page]
   end
 
   # GET /works/1
