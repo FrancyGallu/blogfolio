@@ -69,7 +69,7 @@ class TagsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def tag_params
-      params.fetch(:tag, {})
-    end
+    # def tag_params
+    #   params.fetch(:tag, {})
+    # end
 end
