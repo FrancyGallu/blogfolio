@@ -69,6 +69,13 @@ class WorksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def work_params
-      params.fetch(:work, {})
+      params.require(:work).permit(
+          :name,
+          :cover_image_url,
+          :description,
+          :date,
+          :role,
+          :work_type,
+          :content_urls)
     end
 end

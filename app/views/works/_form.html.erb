@@ -24,13 +24,13 @@
     <%= f.text_field :role %>
 
     <%= f.label "Project Type:" %>
-    <%= f.text_field :type %>
+    <%= f.text_field :work_type %>
 
     <%= f.label "Description:" %>
     <%= f.text_area :description, size: "12x20" %>
 
     <%= f.label "Content URLs:" %>
-    <%= f.text_field :content_urls %>
+    <%= f.text_area :content_urls, size: "12x20" %>
 
     <div class="actions">
       <%= f.submit %>
