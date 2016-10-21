@@ -31,30 +31,18 @@
           <% end %>
         </p>
 
-        <!-- <ul class="social-inline">
-          <li>
-            <a href="https://twitter.com/share" class="twitter-share-button" data-via="jeremiahshoaf" data-dnt="true" data-url="http://www.jeremiahshoaf.com/blog/gumroad-vs-e-junkie-whats-the-best-way-to-sell-your-digital-products">Tweet</a>
-          </li>
-          <li>
-            <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false" data-href="http://www.jeremiahshoaf.com/blog/gumroad-vs-e-junkie-whats-the-best-way-to-sell-your-digital-products"></div>
-          </li>
-          <li>
-            <div class="g-plusone" data-size="medium" data-href="http://www.jeremiahshoaf.com/blog/gumroad-vs-e-junkie-whats-the-best-way-to-sell-your-digital-products"></div>
-          </li>
-        </ul> -->
-
-        <!-- Place this tag after the last +1 button tag. -->
-        <!--<script type="text/javascript">-->
-<!--//          (function() {-->
-<!--//            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;-->
-<!--//            po.src = 'https://apis.google.com/js/platform.js';-->
-<!--//            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);-->
-<!--//          })();-->
-        <!--</script>-->
-
-        <br>
-        <br>
-        <br>
+        <div class="social-inline">
+          <h5>Share this post:</h5>
+          <a class="fa fa-twitter fa-2x"
+             onclick="window.open('https://twitter.com/intent/tweet?text=<%= @post.title %> by @Mandarina_P - &amp;url=<%= url_for([@post, {only_path: false}])%>', '_blank', 'width=800, height=500, top=200, left= 300'); void(0);">
+          </a>
+          <a class="fa fa-facebook fa-2x"
+             onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<%= url_for([@post, {only_path: false}])%>', '_blank', 'width=800, height=500, top=200, left= 300'); void(0);">
+          </a>
+          <a class="fa fa-google-plus fa-2x"
+             onclick="window.open('https://plus.google.com/share?url=<%= url_for([@post, {only_path: false}])%>', '_blank', 'width=800, height=500, top=200, left= 300'); void(0);">
+          </a>
+        </div>
       </article>
 
       <div class="comments">
