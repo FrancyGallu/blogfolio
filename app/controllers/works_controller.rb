@@ -1,4 +1,6 @@
 class WorksController < ApplicationController
+  require "#{Rails.root}/lib/contentManager.rb"
+
   before_action :set_work, only: [:show, :edit, :update, :destroy]
 
   # GET /works
@@ -10,6 +12,7 @@ class WorksController < ApplicationController
   # GET /works/1
   # GET /works/1.json
   def show
+    @work_contents = ContentURLsManager.json_content_urls(@work.content_urls)
   end
 
   # GET /works/new
