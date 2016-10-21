@@ -1,8 +1,7 @@
 // Foundation JavaScript
 // Documentation can be found at: http://foundation.zurb.com/docs
-$(document).foundation();
 
-$(document).ready(function()
+var ready = function()
 {
 	// Image hover
 	$(".thumbnail-img").hover(function() {
@@ -40,4 +39,7 @@ $(document).ready(function()
 		$("html, body").animate({scrollTop: 0}, 700);
 	});
 	
-});
+};
+
+$(document).ready(ready);
+$(document).on('turbolinks:load', ready);

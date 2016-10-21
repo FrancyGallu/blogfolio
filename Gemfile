@@ -43,6 +43,8 @@ gem 'permanent_records'
 gem 'friendly_id', '~> 5.1.0'
 # Pagination gem
 gem 'kaminari'
+# JS utility
+gem 'foundation-rails'
 
 group :production do
   # Use Unicorn as the app server

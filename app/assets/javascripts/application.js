@@ -12,6 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require turbolinks
-//= require_tree ../../../vendor/assets/javascripts/.
+//= require selectize
+//= require modernizr
 //= require_tree .
+
+var ready = function(){ $(document).foundation(); };
+
+$(document).ready(ready);
+$(document).on('turbolinks:load', ready);
