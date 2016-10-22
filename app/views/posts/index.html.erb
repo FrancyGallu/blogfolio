@@ -1,6 +1,10 @@
 <div>
   <div class="row first-row">
     <div class=" large-8 medium-push-4 medium-8 columns ">
+      <% if @posts.empty? %>
+          <h4 class="no-posts-message">There are no posts yet... Stay tuned</h4>
+      <% end %>
+
       <% @posts.each do |post| %>
           <article>
             <h1>
