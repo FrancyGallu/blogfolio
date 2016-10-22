@@ -21,9 +21,9 @@
           <% end %>
         </h6>
 
-        <p>
-          <%= @post.body %>
-        </p>
+        <div>
+          <%= @post.body.html_safe %>
+        </div>
         <p class="byline">
           Author:
           <% if @post.author %>

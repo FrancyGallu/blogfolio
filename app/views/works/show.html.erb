@@ -14,9 +14,24 @@
   <div class="small-12 medium-5 large-5 columns">
     <div class="lined-list">
       <ul>
-        <li><strong>Role:</strong> <%= @work.role.capitalize %></li>
-        <li><strong>Project Type:</strong> <%= @work.work_type.capitalize %></li>
-        <li><strong>Month & Year:</strong> <%= @work.date.strftime("%B %Y") %></li>
+        <li>
+          <strong>Role:</strong>
+          <% if @work.role.present? %>
+              <%= @work.role.capitalize %>
+          <% end %>
+        </li>
+        <li>
+          <strong>Project Type:</strong>
+          <% if @work.work_type.present? %>
+              <%= @work.work_type.capitalize %>
+          <% end %>
+        </li>
+        <li>
+          <strong>Month & Year:</strong>
+          <% if @work.date.present? %>
+              <%= @work.date.strftime("%B %Y") %>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>

@@ -3,12 +3,12 @@
 
 var ready = function() {
     // Prevent form submit on Enter pressed
-    $("form.new_post").on("keypress", function (e) {
+    $("form.new_post .selectize-input").on("keypress", function (e) {
         if (e.keyCode == 13) {
             return false;
         }
     });
-    $("form.edit_post").on("keypress", function (e) {
+    $("form.edit_post .selectize-input").on("keypress", function (e) {
         if (e.keyCode == 13) {
             return false;
         }
@@ -29,7 +29,7 @@ var ready = function() {
 
     $(".archive-item h4").unbind("click").click(function() {
         $(this).next("div").slideToggle();
-    })
+    });
 
     $(".archive-item h5").unbind("click").click(function() {
         $(this).next("div").slideToggle();

@@ -17,7 +17,7 @@
             </h6>
             <p>
               <!--Display 20% of the post body-->
-              <%= post.body[0..post.body.length*20/100] %>
+              <%= post.body[0..post.body.length*20/100].html_safe %>
             </p>
             <p>
               <%= link_to("Continue reading →", post) %>
