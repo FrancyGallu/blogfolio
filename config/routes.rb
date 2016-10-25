@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   get 'blog-archive' => 'posts#archive'
-  get 'about' => 'about#index'
+  get 'feed'         => 'posts#feed'
+  get 'about'        => 'about#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
