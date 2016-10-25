@@ -38,9 +38,6 @@
               <%= link_to 'New Post', new_post_path %>
             </p>
         <% end %>
-
-        <%#= link_to 'Subscribe', "http://www.francesca.ga/feed.rss", target: "_blank" %>
-
         <h5>Tags:</h5>
         <ul>
           <% @tags.each do |tag| %>
@@ -51,6 +48,9 @@
         </ul>
         <p>
           <%= link_to("Blog Archive", blog_archive_path) %>
+        </p>
+        <p>
+          <%= link_to ' Subscribe', "http://www.francesca.ga/feed.rss", target: "_blank", class: "fa fa-rss-square" %>
         </p>
       </aside>
     </div>
