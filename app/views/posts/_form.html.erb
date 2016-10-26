@@ -29,7 +29,11 @@
         ) %>
 
     <%= f.label "Body:" %>
-    <%= f.text_area :body, size: "12x60", escape: false %>
+    <% if @post.body.nil? %>
+        <%= f.text_area :body, size: "12x60", escape: false, :value => "<p></p>" %>
+    <% else %>
+        <%= f.text_area :body, size: "12x60", escape: false%>
+    <% end %>
 
     <div class="actions">
       <%= f.submit %>
