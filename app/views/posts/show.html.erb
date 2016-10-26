@@ -16,7 +16,7 @@
           <% if @post.tags.any? %>
               |
               <% @post.tags.each do |post_tag| %>
-                  #<%= link_to(post_tag.name.downcase, tag_path(post_tag.name.downcase)) %>
+                  #<%= link_to(post_tag.name.downcase, post_tag) %>
               <% end %>
           <% end %>
         </h6>
